@@ -6,6 +6,8 @@ import FillForm from './component/FillForm'
 import AdminHome from './component/admin/component/AdminHome'
 import AdminLog from './component/admin/auths/AdminLog'
 import AdminReg from './component/admin/auths/AdminReg'
+import PrivateRoute from './component/admin/PrivateRoute'
+import PublicRoute from './component/admin/PublicRoute'
 
 let isMobile;
 enquireScreen((b) => {
@@ -31,11 +33,11 @@ class App extends Component {
         <Router>
             <Switch>
                       
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/contact_form" component={FillForm}/>
-                <Route exact path="/admin_register" component={AdminReg}/>
-                <Route exact path="/admin_login" component={AdminLog}/>
-                <Route exact path="/admin_home" component={AdminHome}/>
+                <PublicRoute exact path="/" component={Home}/>
+                <PublicRoute exact path="/contact_form" component={FillForm}/>
+                <PublicRoute exact path="/admin_register" component={AdminReg}/>
+                <PublicRoute exact path="/admin_login" component={AdminLog}/>
+                <PrivateRoute exact path="/admin_home" component={AdminHome}/>
                 <Redirect from="/dashboard" to="/admin_home" />
                 <Redirect from="/userlist" to="/admin_home" />
                 <Redirect from="/team" to="/admin_home" />

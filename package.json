@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm run load"
   },
   "author": "",
   "license": "ISC",
@@ -28,5 +29,8 @@
   "devDependencies": {
     "dotenv": "^8.0.0",
     "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.16.0"
   }
 }

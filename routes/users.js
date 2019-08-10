@@ -26,10 +26,10 @@ router.get('/', async (req, res) => {
    
   })
 
-// new user
+/* // new user
 router.get('/new', (req, res) =>{
     res.render('users/new', {user: new User()})
-})
+}) */
 
 // create user
 router.post('/create', async(req, res) =>{
@@ -48,19 +48,19 @@ router.post('/create', async(req, res) =>{
 
     try {
         const newUser = await user.save()
-         res.redirect(`users/${newUser.id}`)
+         res.redirect(`/`)
     } catch  {
-        res.render('users/new' ,{
+      /*   res.render('users/new' ,{
             user:user,
             errorMessage:"Error creating User"
-        })
+        }) */
     }
 })
 // get user
 router.get('/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id)   
-        res.render('users/show', {
+        res.render('/', {
             user: user,
            
           })
@@ -75,9 +75,9 @@ router.get('/:id', async (req, res) => {
 router.get('/:id/edit', async(req, res) => {
     try {
         const user =await User.findById(req.params.id)
-        res.render('users/edit', {user: user})
+       // res.render('users/edit', {user: user})
     } catch {
-        res.redirect('/users')
+      //  res.redirect('/users')
     }
    
 })
@@ -88,10 +88,10 @@ router.put('/:id', async (req, res) => {
         user = await User.findById(req.params.id)
         user.name = req.body.name
         await user.save()
-        res.redirect(`/users/${user.id}`)
+        //res.redirect(`/users/${user.id}`)
     } catch  {
         if(user === null) {
-            res.redirect('/')
+           // res.redirect('/')
         }else{
             res.render('users/edit' ,{
                 user:user,
@@ -107,12 +107,12 @@ router.delete('/:id', async (req, res) => {
     try {
         user = await User.findById(req.params.id)
         await user.remove()
-        res.redirect('/users')
+       // res.redirect('/users')
     } catch{
         if(user == null){
             res.redirect('/')
         } else {
-            res.redirect(`/users/${users.id}`) 
+          //  res.redirect(`/users/${users.id}`) 
         }
     }
     res.send(`Delete User ${req.params.id}`)
