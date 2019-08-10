@@ -10,7 +10,6 @@
     "axios": "^0.18.1",
     "bizcharts": "^3.5.4",
     "boom": "^7.3.0",
-    "customize-cra": "^0.4.1",
     "enquire-js": "^0.2.1",
     "express": "^4.16.4",
     "fastify": "^2.6.0",
@@ -71,6 +70,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.12.0",
     "concurrently": "^4.1.1",
+    "customize-cra": "^0.4.1",
     "less-loader": "^5.0.0",
     "nodemon": "^1.19.1",
     "react-app-rewired": "^2.1.3"
